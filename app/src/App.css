@@ -1,0 +1,104 @@
+.App {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(to bottom, #192334, #b1c6bf);
+  min-height: 100vh;
+}
+
+.home {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 45vw;
+}
+
+.col-1 {
+  width: 5vw;
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-top: 10vh;
+}
+
+.col-2 {
+  min-height: 100vh;
+  width: 35vw;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  margin-top: 5vh;
+}
+
+.col-3 {
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-top: 10vh;
+}
+
+.sub-header {
+  font-size: 20px;
+  line-height: 1.5;
+  min-width: 35vw;
+}
+
+.spaceship {
+  height: 7vh;
+}
+
+.astronaut {
+  animation: MoveUpDown 4s linear infinite;
+  height: 20vh;
+  position: relative;
+}
+
+@keyframes MoveUpDown {
+  0%,
+  100% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 25px;
+  }
+}
+
+.counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 35vw;
+}
+
+#totalTrees {
+  margin-top: 5vh;
+  font-size: 60px;
+  font-weight: 1000;
+}
+
+#trees_planted {
+  font-size: 24px;
+}
+
+#underline {
+  margin-top: 2vh;
+  width: 7vw;
+}
+
+#plant_button {
+  text-transform: uppercase;
+  color: white;
+  margin-top: 5vh;
+  border-radius: 5vh;
+  padding: 2vh;
+  background-color: #273654;
+  font-size: 20px;
+}
