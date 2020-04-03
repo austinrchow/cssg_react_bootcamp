@@ -1,6 +1,6 @@
 import React from "react";
-import { css, jsx } from "@emotion/core";
-import styled from "@emotion/core";
+import { css, jsx } from "emotion";
+import styled from "emotion";
 
 import Header from "./header.js";
 import Form from "./form.js";

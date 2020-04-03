@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { css, jsx } from "@emotion/core";
+import { css, jsx } from "emotion";
 import title_img from "./images/logo-teamtrees-full-alt.svg";
 import astronaut from "./images/astronaut-sign.svg";
 import spaceship from "./images/spaceship.svg";
