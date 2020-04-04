@@ -1,42 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { css } from "emotion";
 
-
-const CollectionAmountForm = (props) =>  {
-    return <div 
-      className = {css`
-        padding-left: .25rem!important;
-        padding-right: .25rem!important;
-        margin-bottom: .5rem!important;
-        flex-basis: 67.777%;
-        max-width: 67.777%;
-      `}>
-        <textarea
-          className={css`
-            box-sizing: border-box; 
-            height: calc(2.75em + 1.75rem + 2px);
-            padding-bottom: 1rem!important;
-            padding-top: 1rem!important;
-            display: block;
-            width: 100%;
-            padding: .375rem .75rem;
-            font-size: 1rem;
-            font-weight: 400;
-            line-height: 1.5;
-            color: #495057;
-            background-color: #fff;
-            background-clip: padding-box;
-            border: 1px solid #ced4da;
-            border-radius: .25rem;
-          `}
-          maxLength ={6}
-          value={props.otherAmount}
-          id={props.id}
-          onChange={(event) => props.onChange(event.target.value)}
-        ></textarea>
-      </div>
-  }
-  
   const CollectionAmountButton = (props) =>  {
     return <div 
       className = {css`
@@ -115,19 +79,9 @@ const CollectionAmountForm = (props) =>  {
           justify-content: space-around;
         `}
         > 
-          <CollectionAmountButton onSelect={props.onSelect} id = {"formOne" + 1} treeNum={5}/>
-          <CollectionAmountButton onSelect={props.onSelect}  id = {"formOne" + 2} treeNum={10}/>
-          <CollectionAmountButton onSelect={props.onSelect}  id = {"formOne" + 3} treeNum={20}/>
-        </div>
-        <div
-        className={css`
-          display: flex;
-          flex-direction: row;
-          justify-content: space-around;
-        `}
-        > 
-          <CollectionAmountButton onSelect={props.onSelect}  id = {"formOne" + 4} treeNum={50}/>
-          <CollectionAmountForm  onChange={props.onChange} otherAmount={props.otherAmount} onSelect={props.onSelect}  id = {"formOne" + 0}/>
+          <CollectionAmountButton onSelect={props.onSelect} id = {"formOne" + 1} treeNum={10}/>
+          <CollectionAmountButton onSelect={props.onSelect}  id = {"formOne" + 2} treeNum={20}/>
+          <CollectionAmountButton onSelect={props.onSelect}  id = {"formOne" + 3} treeNum={50}/>
         </div>
         <div
             id = {""}
@@ -169,17 +123,15 @@ const CollectionAmountForm = (props) =>  {
   
   const First_Card = (props) => {
     const treeNumMapper = {
-      "formOne1" : 5,
-      "formOne2" : 10,
-      "formOne3" : 20,
-      "formOne4" : 50
+      "formOne1" : 10,
+      "formOne2" : 20,
+      "formOne3" : 50
     }
 
-    const enumTrees = ["formOne0", "formOne1","formOne2","formOne3", "formOne4"]
+    const enumTrees = ["formOne1","formOne2","formOne3"]
 
     const [selectedButton, setSelectedButton] = useState("formOne2");
-    const [numTrees, setNumTrees] = useState(10);
-    const [otherAmount, setOtherAmount] = useState("Other Amount");
+    const [numTrees, setNumTrees] = useState(20);
     const [err, setErr] = useState("");
 
     useEffect( () => {
@@ -187,14 +139,7 @@ const CollectionAmountForm = (props) =>  {
       if (selectedButton === null) return;
       
       for (let t in enumTrees) {
-        const elem = document.getElementById(enumTrees[t]);
-        if (enumTrees[t] === "formOne0") {
-          if (selectedButton != "formOne0") {
-            elem.value = "Other Amount"
-          }
-          continue;
-        }
-        
+        const elem = document.getElementById(enumTrees[t]);    
         if (selectedButton === enumTrees[t]) {
           if (!elem.classList.contains("active")) {
             elem.classList.add("active");
@@ -210,11 +155,6 @@ const CollectionAmountForm = (props) =>  {
       setSelectedButton(val);
     }
 
-    const onChange = (value) => {
-      setSelectedButton("formOne0");
-      setNumTrees(value);
-      setOtherAmount(value);
-    }
 
     const onSubmit = () => {
       if (typeof numTrees == "number") {
@@ -252,7 +192,7 @@ const CollectionAmountForm = (props) =>  {
               font-weight: 600;
             `}
           >JOIN #TEAMTREES. GIFT #TEAMTREES</div>
-          <EnterAmountWidget submit={onSubmit} err={err} onChange={onChange} otherAmount={otherAmount} onSelect={onSelect} selectedButton={selectedButton}/>
+          <EnterAmountWidget submit={onSubmit} err={err} onSelect={onSelect} selectedButton={selectedButton}/>
           <div
             className={css`
               border-radius: 0 0 calc(.5rem - 1px) calc(.5rem - 1px);
