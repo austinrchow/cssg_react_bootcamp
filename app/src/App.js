@@ -4,7 +4,7 @@ import styled from "emotion";
 
 import Header from "./header.js";
 import Form from "./form.js";
-// import Leaderboard from "./leaderboard.js";
+import Leaderboard from "./leaderboard.js";
 
 import "./App.css";
 
@@ -14,7 +14,7 @@ function App() {
       <div className="container">
         <Header />
         <Form />
-        {/* <Leaderboard /> */}
+        <Leaderboard />
       </div>
     </div>
   );
