@@ -3,7 +3,7 @@ import First_Card from "./formPageOne";
 import Second_Card from "./formPageTwo";
 
 
-const Form = () => {
+const Form = (props) => {
   const [firstCard, setfirstCard] = useState(true);
   const [numTrees, setNumTrees] = useState(null);
 
@@ -12,6 +12,7 @@ const Form = () => {
     setfirstCard(true);
     console.log(values)
     console.log(numTrees)
+    props.addDonation([values[0], numTrees, values[2]])
   }
 
   const goBack = () => {
