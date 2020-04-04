@@ -115,7 +115,7 @@ const CollectionAmountForm = (props) =>  {
           justify-content: space-around;
         `}
         > 
-          <CollectionAmountButton onSelect={props.onSelect} id = {"formOne" + 1}treeNum={5}/>
+          <CollectionAmountButton onSelect={props.onSelect} id = {"formOne" + 1} treeNum={5}/>
           <CollectionAmountButton onSelect={props.onSelect}  id = {"formOne" + 2} treeNum={10}/>
           <CollectionAmountButton onSelect={props.onSelect}  id = {"formOne" + 3} treeNum={20}/>
         </div>
@@ -174,7 +174,9 @@ const CollectionAmountForm = (props) =>  {
       "formOne3" : 20,
       "formOne4" : 50
     }
+
     const enumTrees = ["formOne0", "formOne1","formOne2","formOne3", "formOne4"]
+
     const [selectedButton, setSelectedButton] = useState("formOne2");
     const [numTrees, setNumTrees] = useState(10);
     const [otherAmount, setOtherAmount] = useState("Other Amount");
@@ -202,6 +204,7 @@ const CollectionAmountForm = (props) =>  {
         }
       }
     });
+    
     const onSelect = (val) => {
       setNumTrees(treeNumMapper[val]);
       setSelectedButton(val);
